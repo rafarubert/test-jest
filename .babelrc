@@ -1,0 +1,11 @@
+{
+  "sourceMaps": true,
+  "retainLines": true,
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  }
+}
