@@ -1,3 +1,5 @@
+import * as helpers from './helpers';
+
 const appSelector = "#app";
 
 export const $ = (selectorPath) => {
@@ -5,14 +7,9 @@ export const $ = (selectorPath) => {
     ? `${appSelector} ${selectorPath}`
     : appSelector;
 
-  return $$(selectorPath);
+  return helpers.$$(selectorPath);
 };
 
 export const $$ = (selectorPath) => {
   console.log("Deve chamar do mock, não daqui");
-};
-
-export default {
-  $,
-  $$
 };

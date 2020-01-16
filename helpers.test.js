@@ -1,15 +1,20 @@
-import 'document-register-element';
-import helpers from './helpers';
+import * as helpers from './helpers';
 
-jest.mock('./helpers');
+describe('Test', () => {
+  let $$Orig;
 
+  beforeAll(() => {
+    $$Orig = helpers.$$;
+    helpers.$$ = jest.fn( () => { console.log("Chamou do fake")});
+  });
 
-test('Then parse element path with selectorPath', () => {
+  afterAll(() => {
+    helpers.$$ = $$Orig;
+  });
 
-  const spy = jest.spyOn(helpers, '$$');
+  it('test', () => {
+    helpers.$();
 
-  helpers.$();
-
-  expect(spy).toHaveBeenCalled();
-  
+    expect(helpers.$$).toHaveBeenCalled();
+  });
 });
